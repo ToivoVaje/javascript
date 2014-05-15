@@ -3,37 +3,25 @@
 function clearCanvas() {
   var c_canvas = document.getElementById("canvas");
   c_canvas.width = c_canvas.width;
-  window.count=0;
 }
 
-// requestAnim shim layer by Paul Irish
-    window.requestAnimFrame = (function(){
-      return  window.requestAnimationFrame       || 
-              window.webkitRequestAnimationFrame || 
-              window.mozRequestAnimationFrame    || 
-              window.oRequestAnimationFrame      || 
-              window.msRequestAnimationFrame     || 
-              function(/* function */ callback, /* DOMElement */ element){
-                window.setTimeout(callback, 1000 / 60);
-              };
-    })();
-  
-// example code from mr doob : http://mrdoob.com/lab/javascript/requestanimationframe/
+// start animation
+function startAnimation() {
+	requestAnimFrame = requestAnimationFrame(startAnimation);
+	draw();
+}
 
-var canvas, context, toggle;
+//stop animation
+function stopAnimation() {
+  cancelAnimationFrame(requestAnimFrame);
+}
 
-init();
-animate();
+var canvas, context, toggle, requestAnimFrame;
 
 function init() {
     canvas = document.getElementById("canvas");
     context = canvas.getContext( '2d' );
     document.body.appendChild( canvas );
-}
-
-function animate() {
-    requestAnimFrame( animate );
-    draw();
 }
 
 function draw() {

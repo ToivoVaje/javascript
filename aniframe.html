@@ -8,63 +8,12 @@
 <body>
 
 <canvas id="canvas" width="512" height="512"></canvas>
-<a id="controlLink" href="javascript:clearCanvas()">Clear</a>
-<a id="controlLink2" href="javascript:draw2()">Draw</a><br />
+<a id="clear" href="javascript:clearCanvas()">Clear</a>
+<a id="pause" href="javascript:stopAnimation()">Pause</a>
+<a id="draw" href="javascript:startAnimation()">Draw</a><br />
 
 <script type="text/javascript">
-
-// requestAnim shim layer by Paul Irish
-    window.requestAnimFrame = (function(){
-      return  window.requestAnimationFrame       || 
-              window.webkitRequestAnimationFrame || 
-              window.mozRequestAnimationFrame    || 
-              window.oRequestAnimationFrame      || 
-              window.msRequestAnimationFrame     || 
-              function(/* function */ callback, /* DOMElement */ element){
-                window.setTimeout(callback, 1000 / 60);
-              };
-    })();
-  
-// example code from mr doob : http://mrdoob.com/lab/javascript/requestanimationframe/
-
-var canvas, context, toggle;
-
-init();
-animate();
-
-// function init() {
-
-    // // canvas = document.createElement( 'canvas' );
-	// canvas = document.getElementById("canvas");
-    // canvas.width = 512;
-    // canvas.height = 512;
-
-    // context = canvas.getContext( '2d' );
-
-    // document.body.appendChild( canvas );
-
-// }
-
-// function animate() {
-    // requestAnimFrame( animate );
-    // draw();
-
-// }
-
-// function draw() {
-
-    // var time = new Date().getTime() * 0.002;
-    // var x = Math.sin( time ) * 192 + 256;
-    // var y = Math.cos( time * 0.9 ) * 192 + 256;
-    // toggle = !toggle;
-
-    // context.fillStyle = toggle ? 'rgb(200,200,20)' :  'rgb(20,20,200)';
-    // context.beginPath();
-    // context.arc( x, y, 10, 0, Math.PI * 2, true );
-    // context.closePath();
-    // context.fill();
-// }
-
+   init();
 </script>
 
 </body>
